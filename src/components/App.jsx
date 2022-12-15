@@ -7,6 +7,7 @@ export class App extends Component {
   state = {
     items: [],
     isLoding: false,
+    input: '',
   };
 
   componentDidMount() {
@@ -21,10 +22,14 @@ export class App extends Component {
       .finally(this.setState({ isLoding: false }));
   }
 
+  onSubmit = test => {
+    this.setState({ input: test });
+  };
+
   render() {
     return (
       <div className="App">
-        <Searchbar />
+        <Searchbar onSubmit={this.onSubmit} />
         <ImageGalery items={this.state.items} />
       </div>
     );
