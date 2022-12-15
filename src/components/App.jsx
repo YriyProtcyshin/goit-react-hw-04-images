@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { ImageGalery } from './ImageGallery/ImageGallery';
+import { Searchbar } from './Searchbar/Searchbar';
 
 const API = 'https://pixabay.com/api/?key=30615642-0c3410a518698d6d783d2cae0';
 export class App extends Component {
@@ -21,6 +22,11 @@ export class App extends Component {
   }
 
   render() {
-    return <ImageGalery items={this.state.items} />;
+    return (
+      <div className="App">
+        <Searchbar />
+        <ImageGalery items={this.state.items} />
+      </div>
+    );
   }
 }
