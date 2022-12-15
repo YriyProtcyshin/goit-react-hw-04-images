@@ -1,15 +1,26 @@
 import { Component } from 'react';
+import { ImageGalery } from './ImageGallery/ImageGallery';
 
 const API = 'https://pixabay.com/api/?key=30615642-0c3410a518698d6d783d2cae0';
-
 export class App extends Component {
+  state = {
+    items: [],
+    isLoding: false,
+  };
+
   componentDidMount() {
+    this.setState({ isLoding: true });
     fetch(API)
       .then(res => res.json())
-      .then(resonse => console.log(resonse));
+      .then(resonse =>
+        this.setState({
+          items: resonse.hits,
+        })
+      )
+      .finally(this.setState({ isLoding: false }));
   }
 
   render() {
-    return <div>Hello</div>;
+    return <ImageGalery items={this.state.items} />;
   }
 }
