@@ -21,11 +21,10 @@ export class App extends Component {
   getApiQuery = () => {       
      fetch(`${API}&q=${this.state.searchText}&page=${this.state.page}`)
       .then(res => res.json())
-      .then(resonse =>
-       { console.log(resonse)
-        this.setState({
-          items: resonse.hits,
-        })}
+      .then(response =>       
+        this.setState(prevState => ({
+          items:[...prevState.items, ...response.hits]
+        }))
      )
       .catch(console.log("Error"))
       .finally(this.setState({ isLoding: false }));
@@ -48,7 +47,7 @@ export class App extends Component {
   }
 
   onSubmit = searchText => {    
-    this.setState({ searchText: searchText , page:1});
+    this.setState({ searchText: searchText , page:1, items:[]});
   };
 
   getActiveUrl = (item)=>{

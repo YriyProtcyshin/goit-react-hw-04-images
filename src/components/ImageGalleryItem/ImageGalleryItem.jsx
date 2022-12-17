@@ -1,4 +1,5 @@
 import css from "./ImageGalleryItem.module.css"
+import { nanoid } from 'nanoid'
 
 export function ImageGalleryItem({items, getActiveUrl}){    
     return (
@@ -6,7 +7,7 @@ export function ImageGalleryItem({items, getActiveUrl}){
             {items.map(item => 
                 <li
                     className={css.ImageGalleryItem}
-                    key={item.id}
+                    key={nanoid()}
                     onClick={() => getActiveUrl(item)}
                 >
                     <img className={css.ImageGalleryItem_image} src={item.previewURL} alt={item.tags} />
