@@ -12,7 +12,7 @@ export function ImageGalleryItem({ items, getActiveUrl }) {
         >
           <img
             className={css.ImageGalleryItem_image}
-            src={item.previewURL}
+            src={item.webformatURL}
             alt={item.tags}
           />
         </li>
