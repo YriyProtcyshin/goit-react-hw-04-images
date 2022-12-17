@@ -1,13 +1,10 @@
-// import css from "./ImageGallery.module.css"
-
+import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 
-export function ImageGalery({ items }) {
+export function ImageGalery({ items, getActiveUrl }) {
   return (
-    <>
-      {items.map(item => (
-        <img key={item.id} src={item.previewURL} alt={item.tags} />
-      ))}
-    </>
+    <ul className={css.ImageGallery}>
+      <ImageGalleryItem items={items} getActiveUrl={getActiveUrl} />
+    </ul>
   );
 }

@@ -1,7 +1,22 @@
-export function ImageGalleryItem({}) {
+import css from './ImageGalleryItem.module.css';
+import { nanoid } from 'nanoid';
+
+export function ImageGalleryItem({ items, getActiveUrl }) {
   return (
-    <li class="gallery-item">
-      <img src="" alt="" width="200px" height="150px" />
-    </li>
+    <>
+      {items.map(item => (
+        <li
+          className={css.ImageGalleryItem}
+          key={nanoid()}
+          onClick={() => getActiveUrl(item)}
+        >
+          <img
+            className={css.ImageGalleryItem_image}
+            src={item.previewURL}
+            alt={item.tags}
+          />
+        </li>
+      ))}
+    </>
   );
 }
