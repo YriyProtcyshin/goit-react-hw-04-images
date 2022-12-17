@@ -4,6 +4,7 @@ import { Searchbar } from './Searchbar/Searchbar';
 import { Modal } from './Modal/Modal';
 import { Button } from './Button/Button';
 import { Loader } from './Loader/Loader';
+import ScrollToTop from 'react-scroll-to-top';
 
 // import { Audio } from 'react-loader-spinner';
 
@@ -89,6 +90,8 @@ export class App extends Component {
         {status === 'resolve' && items.length > 0 && page !== totalPage && (
           <Button nexPage={this.nexPage} />
         )}
+
+        <ScrollToTop smooth />
 
         {status === 'resolve' && items.length === 0 && (
           <p className="message">Nothing found for {searchText}</p>
