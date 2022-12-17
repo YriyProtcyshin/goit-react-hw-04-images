@@ -16,6 +16,7 @@ export class App extends Component {
     isLoding: false,
     searchText: '',
     page: 1,
+    totalPage: 1,
   };
 
   onCloseModal = () => {
@@ -27,12 +28,14 @@ export class App extends Component {
 
     fetch(`${API}&q=${this.state.searchText}&page=${this.state.page}`)
       .then(res => res.json())
-      .then(data =>
+      .then(data => {
+        console.log(data);
         this.setState(prevState => ({
           items: [...prevState.items, ...data.hits],
           status: 'resolve',
-        }))
-      );
+          totalPage: Math.ceil(data.totalHits / 20),
+        }));
+      });
 
     // setTimeout(() => {
     //   fetch(`${API}&q=${this.state.searchText}&page=${this.state.page}`)
@@ -69,7 +72,8 @@ export class App extends Component {
   };
 
   render() {
-    const { items, status, activeItem } = this.state;
+    const { items, status, activeItem, searchText, page, totalPage } =
+      this.state;
     return (
       <div className="App">
         <Searchbar onSubmit={this.onSubmit} />
@@ -82,7 +86,13 @@ export class App extends Component {
         )}
 
         {status === 'pending' && <Loader />}
-        {status === 'resolve' && <Button nexPage={this.nexPage} />}
+        {status === 'resolve' && items.length > 0 && page !== totalPage && (
+          <Button nexPage={this.nexPage} />
+        )}
+
+        {status === 'resolve' && items.length === 0 && (
+          <p className="message">Nothing found for {searchText}</p>
+        )}
 
         {activeItem && (
           <Modal
