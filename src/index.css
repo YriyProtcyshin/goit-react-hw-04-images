@@ -37,6 +37,9 @@ img {
   padding-bottom: 24px;
   margin-bottom: 50px;
 }
+.no-scroll {
+  overflow: hidden;
+}
 .message {
   margin: 20px auto;
 }

@@ -15,14 +15,11 @@
   position: relative;
   max-width: calc(100vw - 50px);
   max-height: calc(100vh - 50px);
-  min-width: 500px;
-  /*min-height: 500px; */
   background-color: aliceblue;
 }
 .Modal img {
   display: block;
-  transition: height 500ms linear;
-  /* min-height: 500px; */
+  max-width: 90vw;
   max-height: 90vh;
 }
 

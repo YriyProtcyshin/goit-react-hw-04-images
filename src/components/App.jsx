@@ -12,7 +12,7 @@ export class App extends Component {
     items: [],
     activeItem: null,
     status: 'blank',
-    isLoding: false,
+    // isLoding: false,
     searchText: '',
     page: 1,
     totalPage: 1,
