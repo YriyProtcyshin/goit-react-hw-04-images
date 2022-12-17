@@ -1,28 +1,41 @@
 .Overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
 }
 
-.Modal {    
-    position:relative;
-    max-width: calc(100vw - 50px);
-    max-height: calc(100vh - 50px);
-    min-width: 500px;
-    min-height: 500px;
-    background-color: aliceblue;    
+.Modal {
+  position: relative;
+  max-width: calc(100vw - 50px);
+  max-height: calc(100vh - 50px);
+  min-width: 500px;
+  /*min-height: 500px; */
+  background-color: aliceblue;
+}
+.Modal img {
+  display: block;
+  transition: height 500ms linear;
+  /* min-height: 500px; */
+  max-height: 90vh;
 }
 
-.button{   
-    position: absolute; 
-    right: 53px;
-    top: 38px;
-    z-index: 999;
+.button {
+  position: absolute;
+  right: 53px;
+  top: 38px;
+  z-index: 999;
+  background: transparent;
+  border: none;
+}
+.button svg {
+  fill: white;
+  font-size: 40px;
+  cursor: pointer;
 }

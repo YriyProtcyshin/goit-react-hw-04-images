@@ -38,7 +38,7 @@
   width: 48px;
   height: 48px;
   border: 0;
-  background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg');
+  /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg'); */
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
@@ -46,6 +46,10 @@
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   outline: none;
+}
+.SearchForm_button svg {
+  font-size: 24px;
+  height: 51px;
 }
 
 .SearchForm_button:hover {
