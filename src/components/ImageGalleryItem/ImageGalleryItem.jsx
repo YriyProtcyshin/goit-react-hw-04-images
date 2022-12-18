@@ -1,5 +1,6 @@
 import css from './ImageGalleryItem.module.css';
 import { nanoid } from 'nanoid';
+import PropTypes from "prop-types"
 
 export function ImageGalleryItem({ items, getActiveUrl }) {
   return (
@@ -19,4 +20,12 @@ export function ImageGalleryItem({ items, getActiveUrl }) {
       ))}
     </>
   );
+}
+
+ImageGalleryItem.propTypes = {
+    items: PropTypes.arrayOf(PropTypes.shape({
+        webformatURL: PropTypes.string.isRequired,
+        tags: PropTypes.string
+    })),
+    getActiveUrl:PropTypes.func
 }

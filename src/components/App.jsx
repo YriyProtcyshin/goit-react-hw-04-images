@@ -12,7 +12,6 @@ export class App extends Component {
     items: [],
     activeItem: null,
     status: 'blank',
-    // isLoding: false,
     searchText: '',
     page: 1,
     totalPage: 1,
@@ -53,7 +52,7 @@ export class App extends Component {
     this.setState({ activeItem: item });
   };
 
-  nexPage = () => {
+  nextPage = () => {
     this.setState(prevState => ({
       page: prevState.page + 1,
     }));
@@ -75,7 +74,7 @@ export class App extends Component {
 
         {status === 'pending' && <Loader />}
         {status === 'resolve' && items.length > 0 && page !== totalPage && (
-          <Button nexPage={this.nexPage} />
+          <Button nextPage={this.nextPage} />
         )}
 
         {status === 'resolve' && items.length === 0 && (
