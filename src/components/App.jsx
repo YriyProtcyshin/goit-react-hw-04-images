@@ -37,10 +37,7 @@ export class App extends Component {
   };
 
   componentDidUpdate(_, prevState) {
-    if (prevState.searchText !== this.state.searchText) {
-      this.getApiQuery();
-    }
-    if (prevState.page !== this.state.page) {
+    if (prevState.searchText !== this.state.searchText || prevState.page !== this.state.page) {
       this.getApiQuery();
     }
   }
