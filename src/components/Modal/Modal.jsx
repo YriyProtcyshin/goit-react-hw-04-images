@@ -6,19 +6,21 @@ import { SlClose } from 'react-icons/sl';
 const modalRoot = document.querySelector('#modal_root');
 
 export function Modal({ activeItem, onCloseModal }) {
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
 
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.code === 'Escape') {
+        onCloseModal();
+      }
+    }
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, []);
+  }, [onCloseModal]);
 
-  function handleKeyDown(event) {
-    if (event.code === 'Escape') {
-      onCloseModal();
-    }
-  }
+
 
   function handBackDropClick(event) {
     if (event.currentTarget === event.target) {
